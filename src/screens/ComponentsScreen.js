@@ -25,12 +25,15 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "center",
+
   },
   image2: {
     height: 300,
     width: 300,
-    alignSelf:'center'
+    alignSelf:'center',
+    borderRadius: 150,
+    overflow: 'hidden'    
   }
 });
 
