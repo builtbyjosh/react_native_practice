@@ -1,9 +1,8 @@
 import React from 'react';
-import { Text, StyleSheet, Button, View } from 'react-native';
+import { Text, StyleSheet, Button, View, TouchableOpacity } from 'react-native';
 
 const HomeScreen = ({ navigation }) => {
   
-  const name = 'josh'
   return (
     <View>
       <Text style={styles.text}>HomeScreen!!!</Text>
@@ -11,9 +10,11 @@ const HomeScreen = ({ navigation }) => {
         title="next page"
         onPress={() => {
           navigation.navigate('Component');
-        }} 
+        }}
       />
-      <Text style={styles.subtext}>{name}</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('List')}>
+        <Text style={styles.subtext}>Go To List Demo</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -21,14 +22,14 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   text: {
     fontSize: 45,
-    alignSelf: 'center',    
+    alignSelf: 'center',
     marginVertical: 50,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   subtext: {
-    fontSize: 20,
+    fontSize: 25,
     alignSelf: 'center',
-    marginVertical: 50
+    marginVertical: 50,
   },
 });
 
