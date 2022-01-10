@@ -21,6 +21,9 @@ const HomeScreen = ({ navigation }) => {
       <TouchableOpacity onPress={() => navigation.navigate('Count')}>
         <Text style={styles.subtext}>Go To Counting Demo</Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Color')}>
+        <Text style={styles.subtext}>Go To Color Demo</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -35,7 +38,7 @@ const styles = StyleSheet.create({
   subtext: {
     fontSize: 25,
     alignSelf: 'center',
-    marginVertical: 50,
+    marginVertical: 15,
   },
 });
 
