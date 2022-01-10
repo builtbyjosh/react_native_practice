@@ -1,32 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-const RGB = ({ color, setColor, text }) => {
-  const COLOR_ADJUSTER = 15;
-
-  const handleClick = (change) => {
-    console.log(color, change)
-    color + change > 255 || color + change < 0 ? null : setColor(color + change);
-    // if (color + change > 255 || color + change < 0) {
-    //   return;
-    // } else {
-    //   setColor(color + change);
-    // }
-  };
+const RGB = ({ color, onIncrease, onDecrease }) => {
 
   return (
     <View>
       <Text style={styles.subtext}>
-        {text}: {color}
+        {color}
       </Text>
       <Button
-        title={`Increase ${text}`}
-        onPress={() => handleClick(COLOR_ADJUSTER)}
+        title={`Increase ${color}`}
+        onPress={() => onIncrease()}
       />
       <Text></Text>
       <Button
-        title={`Decrease ${text}`}
-        onPress={() => handleClick(-1 * COLOR_ADJUSTER)}
+        title={`Decrease ${color}`}
+        onPress={() => onDecrease()}
       />
     </View>
   );

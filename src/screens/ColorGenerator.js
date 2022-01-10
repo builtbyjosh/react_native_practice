@@ -1,19 +1,54 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
 import RGB from '../components/RGB';
 
+const COLOR_ADJUSTER = 15;
+
+const reducer = (state, action) => {
+  switch (action.colorToChange) {
+    case 'red':
+      return { ...state, red: state.red + action.amount };
+    case 'green':
+      return { ...state, green: state.green + action.amount };
+    case 'blue':
+      return { ...state, blue: state.blue + action.amount };
+    default:
+      return state;
+  }
+};
+
 const ColorGen = () => {
-  const [red, setRed] = useState(0);
-  const [green, setGreen] = useState(0);
-  const [blue, setBlue] = useState(0);
-
-  const bgColor = `rgb(${red}, ${green}, ${blue})`;
-
+  const [state, dispatch] = useReducer(reducer, { red: 0, green: 0, blue: 0 });
+  const { red, green, blue } = state;
   return (
     <View>
-      <RGB color={red} setColor={setRed} text={'red'} />
-      <RGB color={green} setColor={setGreen} text={'green'} />
-      <RGB color={blue} setColor={setBlue} text={'blue'} />
+      <RGB
+        color={'Red'}
+        onIncrease={() => {
+          dispatch({colorToChange: 'red', amount: COLOR_ADJUSTER});
+        }}
+        onDecrease={() => {
+          dispatch({colorToChange: 'red', amount: -1 * COLOR_ADJUSTER});
+        }}
+      />
+      <RGB
+        color={'Green'}
+        onIncrease={() => {
+          dispatch({colorToChange: 'green', amount: COLOR_ADJUSTER});
+        }}
+        onDecrease={() => {
+          dispatch({colorToChange: 'green', amount: -1 * COLOR_ADJUSTER});
+        }}
+      />
+      <RGB
+        color={'Blue'}
+        onIncrease={() => {
+          dispatch({colorToChange: 'blue', amount: COLOR_ADJUSTER});
+        }}
+        onDecrease={() => {
+          dispatch({colorToChange: 'blue', amount: -1 * COLOR_ADJUSTER});
+        }}
+      />
       <View
         style={{
           marginTop: 15,
