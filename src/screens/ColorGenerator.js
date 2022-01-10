@@ -18,7 +18,7 @@ const ColorGen = () => {
         style={{
           marginTop: 15,
           height: 100,
-          width: 100,
+          width: '100%',
           backgroundColor: `rgb(${red}, ${green}, ${blue})`,
         }}
       ></View>

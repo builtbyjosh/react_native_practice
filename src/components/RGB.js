@@ -6,11 +6,12 @@ const RGB = ({ color, setColor, text }) => {
 
   const handleClick = (change) => {
     console.log(color, change)
-    if (color + change > 255 || color + change < 0) {
-      return;
-    } else {
-      setColor(color + change);
-    }
+    color + change > 255 || color + change < 0 ? null : setColor(color + change);
+    // if (color + change > 255 || color + change < 0) {
+    //   return;
+    // } else {
+    //   setColor(color + change);
+    // }
   };
 
   return (
