@@ -30,6 +30,9 @@ const HomeScreen = ({ navigation }) => {
       <TouchableOpacity onPress={() => navigation.navigate('InputName')}>
         <Text style={styles.subtext}>Go To Name Input Demo</Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('BoxScreen')}>
+        <Text style={styles.subtext}>Go To Box Screen Demo</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -44,7 +47,7 @@ const styles = StyleSheet.create({
   subtext: {
     fontSize: 25,
     alignSelf: 'center',
-    marginVertical: 15,
+    marginVertical: 10,
   },
 });
 
