@@ -14,6 +14,7 @@ const NameInput = () => {
         value={textValue}
         onChangeText={(e) => setTextValue(e)}
       />
+      {textValue.length < 5 ? <Text>Password must be at least 5 characters</Text> : null }
       <Text style={styles.subtext}>Hello {textValue}!</Text>
     </View>
   );
